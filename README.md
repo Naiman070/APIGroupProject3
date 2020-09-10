@@ -224,7 +224,12 @@ http://localhost:8083/food/cache/update?name={food name}&field={fieldName}
  
 ##### Scenario 1:
 ```gherkin
-Given user updates "T-Bone steak"'s price to 100.00 
+Given add new food to FoodDelivery with the following fields
+|description|imageUrl       | price   |  name     |  foodType   |
+|Wine       |https:foods.com| 20.00   |  Merlot   |  Beverages  |
+And verify that status code is 200
+And verify that food has been successfully added
+When user updates "Merlot"'s price to 100.00 
 Then verify that status code is 200
 Then verify that price have been updated
 ```
@@ -259,6 +264,7 @@ Example Response body:
 Given user updates "T-Bone steak"'s price to 125.50 
 Then verify that status code is 403
 Then verify that error message "Invalid request - Food price should be kept less than 125" is displayed
+Then verify 
 ```
 
 Example response body: 
@@ -285,7 +291,7 @@ Example Request Body:
 ####TODO: Write test cases(scenarios) and execute them manually. Validate each enpoint.
  Check logs for each enpoint as well. Validate data in food_delivery Database.
  
-User should be able to commit changes so that it saves cache to DB _food_ table.
+User should be able to commit changes so that it saves cache to DB _food_ table and clears the cache data.
 Some food can be excluded from being saved in DB.
  API Endpoint: 
 ```json
@@ -303,6 +309,7 @@ Then verify that status code is 200
 Then verify number of saved food
 Then verify response message "Food Cache is committed to db"
 Then verify that all food information is saved in DB
+Then verify that food cache is empty
 ```
 
 ##### Scenario 2:
@@ -312,6 +319,7 @@ Then verify that status code is 200
 Then verify number of saved food
 Then verify response message "Food Cache is committed to db"
 Then verify that all food information is saved in DB
+Then verify that food cache is empty
 ```
 Example response body: 
 ```json
