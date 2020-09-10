@@ -11,7 +11,7 @@
 ####Functionality 1. 
 ####TODO: Write test cases(scenarios) and execute them manually. Validate each enpoint. Check logs for each enpoint as well. 
 
-User should be able to ADD food: 
+User should be able to ADD food to cache, to validate the current cache data send request to "food/cache/list": 
 
  API Endpoint: 
 ```json
@@ -160,7 +160,7 @@ Example response body:
 ####Functionality 2.
 ####TODO: Write test cases(scenarios) and execute them manually. Validate each enpoint. Check logs for each enpoint as well. 
  
-User should be able to list all added foods.
+User should be able to list all added foods in cache.
 
  API Endpoint: 
 ```json
